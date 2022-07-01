@@ -20,8 +20,9 @@ import android.widget.TextView;
 
 import com.example.freetrip.MainActivity;
 import com.example.freetrip.R;
+import com.example.freetrip.databean.UserWrapper;
 import com.example.freetrip.databinding.FragmentSignInBinding;
-import com.example.freetrip.ui.login.model.databean.User;
+import com.example.freetrip.databean.User;
 import com.example.freetrip.ui.login.viewmodel.LoginViewModel;
 
 public class SignInFragment extends Fragment {
@@ -44,7 +45,7 @@ public class SignInFragment extends Fragment {
             @Override
             public void onChanged(User user) {
                 if(user!=null){
-                    startActivity(new Intent(getActivity(), MainActivity.class));
+                    startActivity(new Intent(getActivity(), MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
                 }
             }
         });

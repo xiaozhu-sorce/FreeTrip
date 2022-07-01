@@ -20,6 +20,9 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.freetrip.R;
 import com.example.freetrip.databinding.FragmentMineBinding;
+import com.example.freetrip.databean.UserWrapper;
+import com.example.freetrip.ui.mine.view.SettingActivity;
+import com.example.freetrip.ui.mine.view.myblog.MyBlogActivity;
 import com.example.freetrip.ui.mine.view.travel.MyTravelActivity;
 import com.example.freetrip.ui.mine.viewmodel.MineViewModel;
 
@@ -31,16 +34,19 @@ public class MineFragment extends Fragment {
     private TextView setting;
     private TextView myblogs;
     private TextView mytravels;
+    private MineViewModel mineViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        MineViewModel mineViewModel =
+        mineViewModel =
                 new ViewModelProvider(this).get(MineViewModel.class);
 
         binding = FragmentMineBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         name = binding.textName;
+        if (UserWrapper.getInstance() != null)
+            name.setText(UserWrapper.getInstance().getUser().getName());
         pra = binding.textPranum;
         setting = binding.textSetting;
         myblogs = binding.textMyBlog;
@@ -111,12 +117,13 @@ public class MineFragment extends Fragment {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (editView.getText().toString().length() == 0 ) {
-                    Toast.makeText(getActivity(),"名称不可以为空哦！",Toast.LENGTH_SHORT).show();
-                }else{
+                if (editView.getText().toString().length() == 0) {
+                    Toast.makeText(getActivity(), "名称不可以为空哦！", Toast.LENGTH_SHORT).show();
+                } else {
                     name.setText(editView.getText().toString());
                     String name = editView.getText().toString();
-                    //mUser.setName(name);
+                    UserWrapper.getInstance().getUser().setName(name);
+                    mineViewModel.setName(getContext());
                     backgroundAlpha(1.0f);
                     popupWindow.dismiss();
                 }

@@ -1,8 +1,9 @@
-package com.example.freetrip.ui.mine.view;
+package com.example.freetrip.ui.mine.view.myblog;
 
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,37 +11,40 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.freetrip.R;
-import com.example.freetrip.databinding.ActivityAddblogBinding;
+import com.example.freetrip.databean.UserWrapper;
 import com.example.freetrip.databinding.ActivityMineBlogBinding;
-import com.example.freetrip.ui.mine.viewmodel.MineViewModel;
-import com.example.freetrip.ui.tour.view.BlogRecyclerViewAdapter;
+import com.example.freetrip.ui.mine.viewmodel.MyBlogViewModel;
 
 public class MyBlogActivity extends AppCompatActivity {
 
     private ActivityMineBlogBinding binding;
     private RecyclerView recyclerView;
     private RecyclerViewAdapter recyclerViewAdapter;
+    private TextView name;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        MineViewModel mineViewModel = new ViewModelProvider(this).get(MineViewModel.class);
+        MyBlogViewModel viewModel = new ViewModelProvider(this).get(MyBlogViewModel.class);
 
         binding = ActivityMineBlogBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
 
+        name = binding.textName;
+        name.setText(UserWrapper.getInstance().getUser().getName());
+
         recyclerView = binding.rvMyblogs;
 
-        recyclerViewAdapter = new RecyclerViewAdapter();
+        recyclerViewAdapter = new RecyclerViewAdapter(viewModel);
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(linearLayoutManager);
 
         recyclerView.setAdapter(recyclerViewAdapter);
 
-        mineViewModel.getBlogLiveData().observe(this,recyclerViewAdapter::updateBlogList);
+        viewModel.populateList();
+        viewModel.getBlogLiveData().observe(this,recyclerViewAdapter::updateBlogList);
 
         this.getSupportActionBar().hide();
 

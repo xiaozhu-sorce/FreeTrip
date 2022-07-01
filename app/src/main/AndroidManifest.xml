@@ -32,7 +32,7 @@
         <activity android:name=".MainActivity"/>
         <activity android:name=".ui.mine.view.SettingActivity" />
         <activity android:name=".ui.tour.view.AddBlogActivity" />
-        <activity android:name=".ui.mine.view.MyBlogActivity" />
+        <activity android:name=".ui.mine.view.myblog.MyBlogActivity" />
         <activity android:name=".ui.mine.view.travel.MyTravelActivity" />
         <activity android:name=".ui.home.view.TravelActivity" />
         <activity android:name=".ui.home.view.RouteActivity" />

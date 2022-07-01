@@ -11,6 +11,13 @@
     android:background="@drawable/shape_rectangle"
     android:backgroundTint="#FCDDDADA">
 
+    <TextView
+        android:id="@+id/text_time"
+        android:padding="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2020"/>
+
     <LinearLayout
         android:id="@+id/line1"
         android:layout_width="match_parent"
@@ -33,7 +40,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/login_out"
+        android:id="@+id/bt_del"
         android:layout_width="55dp"
         android:layout_height="30dp"
         android:layout_gravity="right"

@@ -3,7 +3,8 @@ package com.example.freetrip.ui.login.model;
 import com.example.freetrip.net.NetUtil;
 import com.example.freetrip.ui.login.model.databean.LoginResponse;
 import com.example.freetrip.ui.login.model.databean.RegisterResponse;
-import com.example.freetrip.ui.login.model.databean.User;
+import com.example.freetrip.databean.User;
+import com.example.freetrip.databean.UserWrapper;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -12,8 +13,8 @@ import retrofit2.Response;
 public class ReomteRepository implements DataSource {
     private static ReomteRepository INSTANCE;
 
-    public static ReomteRepository getINSTANCE(){
-        if (INSTANCE == null){
+    public static ReomteRepository getINSTANCE() {
+        if (INSTANCE == null) {
             INSTANCE = new ReomteRepository();
         }
         return INSTANCE;
@@ -25,9 +26,10 @@ public class ReomteRepository implements DataSource {
         NetUtil.getInstance().getApi().login(user).enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                if (response.body().getMsg().equals("ok")){
+                if (response.body().getMsg().equals("ok")) {
+                    UserWrapper.getInstance().setUser(response.body().getData());
                     loadLoginCallBack.onLoginLoded();
-                }else{
+                } else {
                     loadLoginCallBack.onDataNotAvailable();
                 }
             }
@@ -44,9 +46,9 @@ public class ReomteRepository implements DataSource {
         NetUtil.getInstance().getApi().register(user).enqueue(new Callback<RegisterResponse>() {
             @Override
             public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
-                if (response.body().getCode().equals("200")){
+                if (response.body().getCode() == 200) {
                     loadLoginCallBack.onLoginLoded();
-                }else{
+                } else {
                     loadLoginCallBack.onDataNotAvailable();
                 }
             }

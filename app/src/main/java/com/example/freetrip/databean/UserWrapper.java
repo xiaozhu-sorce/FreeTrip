@@ -1,4 +1,4 @@
-package com.example.freetrip.ui.login.model.databean;
+package com.example.freetrip.databean;
 
 import androidx.annotation.Nullable;
 

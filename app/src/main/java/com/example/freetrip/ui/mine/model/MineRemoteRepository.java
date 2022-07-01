@@ -1,15 +1,19 @@
 package com.example.freetrip.ui.mine.model;
 
 
+import com.example.freetrip.databean.Blog;
+import com.example.freetrip.databean.RuleResponse;
 import com.example.freetrip.net.NetUtil;
-import com.example.freetrip.ui.login.model.DataSource;
-import com.example.freetrip.ui.login.model.databean.User;
+import com.example.freetrip.ui.login.model.databean.RegisterResponse;
+import com.example.freetrip.databean.User;
+import com.example.freetrip.ui.tour.model.TourDataSource;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MineRemoteRepository implements MineDataSource {
+
     private static MineRemoteRepository INSTANCE;
 
     public static MineRemoteRepository getINSTANCE() {
@@ -21,17 +25,87 @@ public class MineRemoteRepository implements MineDataSource {
 
 
     @Override
-    public void getPraStatus(User user, LoadLoginCallBack loadLoginCallBack) {
+    public void getPraStatus(User user, LoadPraCallBack loadLoginCallBack) {
         NetUtil.getInstance().getApi().getMyPra(String.valueOf(user.getId())).enqueue(new Callback<MyPraResponse>() {
             @Override
             public void onResponse(Call<MyPraResponse> call, Response<MyPraResponse> response) {
-                if (response.body().getCode().equals("200")) loadLoginCallBack.onLoginLoded(response.body().getData());
+                assert response.body() != null;
+                if (response.body().getCode() == 200)
+                    loadLoginCallBack.onLoginLoded(response.body().getData());
                 else loadLoginCallBack.onDataNotAvailable();
             }
 
             @Override
             public void onFailure(Call<MyPraResponse> call, Throwable t) {
                 loadLoginCallBack.onFailure();
+            }
+        });
+    }
+
+    @Override
+    public void setNameStatus(User user, LoadCallBack loadCallBack) {
+        NetUtil.getInstance().getApi().setName(user).enqueue(new Callback<RegisterResponse>() {
+            @Override
+            public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
+                if (response.body() != null && response.body().getCode() == 200)
+                    loadCallBack.onLoginLoded();
+                else loadCallBack.onDataNotAvailable();
+            }
+
+            @Override
+            public void onFailure(Call<RegisterResponse> call, Throwable t) {
+                loadCallBack.onFailure();
+            }
+        });
+    }
+
+    @Override
+    public void getMyBlogListStatus(User user, MyBlogListCallBack callBack) {
+        NetUtil.getInstance().getApi().getMyBlogList(user).enqueue(new Callback<RuleResponse>() {
+            @Override
+            public void onResponse(Call<RuleResponse> call, Response<RuleResponse> response) {
+                if (response.body() != null && response.body().getCode() == 200) {
+                    callBack.setList(response.body().getData());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<RuleResponse> call, Throwable t) {
+
+            }
+        });
+    }
+
+    @Override
+    public void deleteUserStatus(String id, DeleteUserCallBack callBack){
+        NetUtil.getInstance().getApi().writeOff(id).enqueue(new Callback<RegisterResponse>() {
+            @Override
+            public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
+                if (response.body()!=null && response.body().getCode() == 200){
+                    callBack.jump();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<RegisterResponse> call, Throwable t) {
+
+            }
+        });
+    }
+
+    @Override
+    public void deleBolgStatus(String id,DeleteBlogCallback callback) {
+        NetUtil.getInstance().getApi().deleteBlog(id).enqueue(new Callback<RegisterResponse>() {
+            @Override
+            public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
+                if (response.body()!=null && response.body().getCode() == 200){
+                    callback.notice();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<RegisterResponse> call, Throwable t) {
+
             }
         });
     }

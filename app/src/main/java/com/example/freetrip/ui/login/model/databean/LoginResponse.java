@@ -1,5 +1,7 @@
 package com.example.freetrip.ui.login.model.databean;
 
+import com.example.freetrip.databean.User;
+
 public class LoginResponse {
 
     /**
@@ -14,7 +16,7 @@ public class LoginResponse {
      * password : 12345678
      */
 
-    private DataBean data;
+    private User data;
 
     public String getMsg() {
         return msg;
@@ -24,41 +26,11 @@ public class LoginResponse {
         this.msg = msg;
     }
 
-    public DataBean getData() {
+    public User getData() {
         return data;
     }
 
-    public void setData(DataBean data) {
+    public void setData(User data) {
         this.data = data;
-    }
-
-    public static class DataBean {
-        private int id;
-        private String name;
-        private String password;
-
-        public int getId() {
-            return id;
-        }
-
-        public void setId(int id) {
-            this.id = id;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public String getPassword() {
-            return password;
-        }
-
-        public void setPassword(String password) {
-            this.password = password;
-        }
     }
 }

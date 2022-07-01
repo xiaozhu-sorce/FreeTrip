@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.mine.view.MyBlogActivity"
+    tools:context=".ui.mine.view.myblog.MyBlogActivity"
     android:paddingTop="?actionBarSize">
 
     <ImageButton
@@ -18,17 +18,18 @@
 
     <ImageView
         android:id="@+id/image_head"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_marginEnd="20dp"
         android:background="@mipmap/head"
         android:layout_gravity="right"/>
 
     <TextView
         android:id="@+id/text_name"
+        android:padding="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
+        android:layout_marginEnd="35dp"
         android:text="name"
         android:layout_gravity="right"/>
 

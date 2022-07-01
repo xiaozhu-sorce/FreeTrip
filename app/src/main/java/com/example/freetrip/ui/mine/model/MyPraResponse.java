@@ -7,16 +7,8 @@ public class MyPraResponse {
      * data : 0
      */
 
-    private String code;
+    private int code;
     private String data;
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
 
     public String getData() {
         return data;
@@ -24,5 +16,13 @@ public class MyPraResponse {
 
     public void setData(String data) {
         this.data = data;
+    }
+
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
     }
 }

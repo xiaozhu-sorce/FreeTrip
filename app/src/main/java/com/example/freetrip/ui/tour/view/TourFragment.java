@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -14,11 +15,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.freetrip.databinding.FragmentTourBinding;
-import com.example.freetrip.ui.mine.view.SettingActivity;
 import com.example.freetrip.ui.tour.viewmodel.TourViewModel;
 
 
-public class TourFragment extends Fragment {
+public class TourFragment extends Fragment{
 
     private FragmentTourBinding binding;
     private RecyclerView recyclerView;
@@ -38,12 +38,13 @@ public class TourFragment extends Fragment {
         addBlog.setOnClickListener(v -> {
             startActivity(new Intent(getActivity(), AddBlogActivity.class));
         });
-        recyclerViewAdapter = new BlogRecyclerViewAdapter();
+        recyclerViewAdapter = new BlogRecyclerViewAdapter(tourViewModel);
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(linearLayoutManager);
 
         recyclerView.setAdapter(recyclerViewAdapter);
 
+        tourViewModel.populateList();
         tourViewModel.getBlogLiveData().observe(getViewLifecycleOwner(),recyclerViewAdapter::updateBlogList);
         return root;
     }

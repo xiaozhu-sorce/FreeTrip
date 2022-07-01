@@ -1,6 +1,6 @@
 package com.example.freetrip.ui.login.model;
 
-import com.example.freetrip.ui.login.model.databean.User;
+import com.example.freetrip.databean.User;
 
 public interface DataSource {
 

@@ -10,8 +10,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.freetrip.ui.login.model.DataSource;
 import com.example.freetrip.ui.login.model.ReomteRepository;
-import com.example.freetrip.ui.login.model.databean.User;
-import com.example.freetrip.ui.login.model.databean.UserWrapper;
+import com.example.freetrip.databean.User;
 
 public class LoginViewModel extends AndroidViewModel {
 
@@ -37,12 +36,11 @@ public class LoginViewModel extends AndroidViewModel {
             @Override
             public void onLoginLoded() {
                 userData.postValue(user);
-                UserWrapper.getInstance().setUser(user);
             }
 
             @Override
             public void onDataNotAvailable() {
-                Toast.makeText(mContext,"邮箱或密码错误", Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext,"账号或密码错误", Toast.LENGTH_SHORT).show();
             }
 
             @Override

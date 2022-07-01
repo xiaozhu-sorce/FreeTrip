@@ -1,4 +1,4 @@
-package com.example.freetrip.ui.login.model.databean;
+package com.example.freetrip.databean;
 
 public class User {
     private int id;

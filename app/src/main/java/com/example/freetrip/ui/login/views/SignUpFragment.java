@@ -18,7 +18,7 @@ import android.widget.EditText;
 
 import com.example.freetrip.R;
 import com.example.freetrip.databinding.FragmentSignUpBinding;
-import com.example.freetrip.ui.login.model.databean.User;
+import com.example.freetrip.databean.User;
 import com.example.freetrip.ui.login.viewmodel.LoginViewModel;
 
 

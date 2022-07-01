@@ -14,6 +14,7 @@ public class NetUtil {
     private final RetrofitApi api;
     private final Gson gson;
     private static final String baseUrl = "http://192.168.43.223:8080/";
+//    private static final String baseUrl = "http://10.148.71.122:8080/";
 
     private NetUtil() {
         gson = new Gson();
