@@ -3,6 +3,7 @@ package com.example.freetrip.ui.mine.view.travel;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +14,7 @@ import com.example.freetrip.databinding.ActivityMineTravelBinding;
 public class MyTravelActivity extends AppCompatActivity {
     private ActivityMineTravelBinding binding;
     private CollectionDemoFragment fragment;
+    private ImageButton back;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -22,6 +24,9 @@ public class MyTravelActivity extends AppCompatActivity {
 
         View view = binding.getRoot();
         setContentView(view);
+
+        back = binding.mineTravelBack;
+        back.setOnClickListener(v -> finish());
 
         if(fragment == null)
             fragment = new CollectionDemoFragment();

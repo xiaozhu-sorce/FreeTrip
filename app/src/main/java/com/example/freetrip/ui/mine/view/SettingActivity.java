@@ -5,6 +5,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -19,11 +20,15 @@ import com.example.freetrip.ui.mine.model.MineRemoteRepository;
 public class SettingActivity extends AppCompatActivity {
     private Button signOut,writeoff;
     private MineRemoteRepository repository = MineRemoteRepository.getINSTANCE();
+    private ImageButton back;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
+
+        back = findViewById(R.id.set_back);
+        back.setOnClickListener(v -> finish());
 
         signOut = findViewById(R.id.login_out);
         writeoff = findViewById(R.id.writeOff);

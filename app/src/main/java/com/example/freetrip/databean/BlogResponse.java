@@ -2,7 +2,7 @@ package com.example.freetrip.databean;
 
 import java.util.List;
 
-public class RuleResponse {
+public class BlogResponse {
 
     /**
      * msg : search successful

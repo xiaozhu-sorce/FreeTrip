@@ -1,12 +1,10 @@
 package com.example.freetrip.ui.mine.model;
 
 
-import com.example.freetrip.databean.Blog;
-import com.example.freetrip.databean.RuleResponse;
+import com.example.freetrip.databean.BlogResponse;
 import com.example.freetrip.net.NetUtil;
 import com.example.freetrip.ui.login.model.databean.RegisterResponse;
 import com.example.freetrip.databean.User;
-import com.example.freetrip.ui.tour.model.TourDataSource;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -61,16 +59,16 @@ public class MineRemoteRepository implements MineDataSource {
 
     @Override
     public void getMyBlogListStatus(User user, MyBlogListCallBack callBack) {
-        NetUtil.getInstance().getApi().getMyBlogList(user).enqueue(new Callback<RuleResponse>() {
+        NetUtil.getInstance().getApi().getMyBlogList(user).enqueue(new Callback<BlogResponse>() {
             @Override
-            public void onResponse(Call<RuleResponse> call, Response<RuleResponse> response) {
+            public void onResponse(Call<BlogResponse> call, Response<BlogResponse> response) {
                 if (response.body() != null && response.body().getCode() == 200) {
                     callBack.setList(response.body().getData());
                 }
             }
 
             @Override
-            public void onFailure(Call<RuleResponse> call, Throwable t) {
+            public void onFailure(Call<BlogResponse> call, Throwable t) {
 
             }
         });

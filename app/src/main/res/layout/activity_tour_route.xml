@@ -5,14 +5,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingTop="?actionBarSize"
     tools:context=".ui.home.view.TravelActivity">
 
     <ImageButton
-        android:id="@+id/setting_back"
+        android:id="@+id/travel_route_back"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/ic_baseline_arrow_back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -26,7 +27,7 @@
         android:text="选择自己想去的城市查看旅游路线"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/setting_back" />
+        app:layout_constraintTop_toBottomOf="@+id/travel_route_back" />
 
     <Button
         android:id="@+id/beijing"
@@ -41,7 +42,7 @@
 
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/wuhan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
@@ -53,7 +54,7 @@
 
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/chongqing"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
@@ -62,12 +63,12 @@
         android:backgroundTint="#D8D5D5"
         android:text="重庆"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button4"
+        app:layout_constraintStart_toEndOf="@+id/wuhan"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/shanghai"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -79,18 +80,19 @@
 
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/chengdu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="40dp"
         android:backgroundTint="#D8D5D5"
         android:text="成都"
-        app:layout_constraintStart_toEndOf="@+id/button3"
-        app:layout_constraintTop_toBottomOf="@+id/button4" />
+        app:layout_constraintStart_toEndOf="@+id/shanghai"
+        app:layout_constraintTop_toBottomOf="@+id/wuhan" />
 
 
     <Button
+        android:id="@+id/nanjing"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
@@ -99,12 +101,12 @@
         android:backgroundTint="#D8D5D5"
         android:text="南京"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button5"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintStart_toEndOf="@+id/chengdu"
+        app:layout_constraintTop_toBottomOf="@+id/chongqing" />
 
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/xizang"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#D8D5D5"
@@ -113,29 +115,29 @@
         android:layout_marginRight="20dp"
         android:text="西藏"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
+        app:layout_constraintTop_toBottomOf="@+id/shanghai" />
 
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/dunhuang"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="40dp"
         android:backgroundTint="#D8D5D5"
         android:text="敦煌"
-        app:layout_constraintStart_toEndOf="@+id/button6"
-        app:layout_constraintTop_toBottomOf="@+id/button5" />
+        app:layout_constraintStart_toEndOf="@+id/xizang"
+        app:layout_constraintTop_toBottomOf="@+id/chengdu" />
 
     <TextView
         android:id="@+id/ttt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="8dp"
-        android:text="没有想去的城市？戳这里！"
+        android:text="没有想去的城市？"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button7" />
+        app:layout_constraintTop_toBottomOf="@+id/dunhuang" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

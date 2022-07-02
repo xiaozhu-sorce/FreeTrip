@@ -1,7 +1,8 @@
 package com.example.freetrip.net;
 
 import com.example.freetrip.databean.Blog;
-import com.example.freetrip.databean.RuleResponse;
+import com.example.freetrip.databean.BlogResponse;
+import com.example.freetrip.databean.RouteResponse;
 import com.example.freetrip.databean.User;
 import com.example.freetrip.ui.login.model.databean.LoginResponse;
 import com.example.freetrip.ui.login.model.databean.RegisterResponse;
@@ -32,10 +33,10 @@ public interface RetrofitApi {
     Call<RegisterResponse> setName(@Body User user);
 
     @POST("myblog/search")
-    Call<RuleResponse> getMyBlogList(@Body User user);
+    Call<BlogResponse> getMyBlogList(@Body User user);
 
     @GET("tour/list")
-    Call<RuleResponse> getBlogList();
+    Call<BlogResponse> getBlogList();
 
     @POST("tour/blog/add")
     Call<RegisterResponse> addBlog(@Body Blog blog);
@@ -45,4 +46,7 @@ public interface RetrofitApi {
 
     @DELETE("myblog/delete/{id}")
     Call<RegisterResponse> deleteBlog(@Path("id") String id);
+
+    @GET("home/search/{city}")
+    Call<RouteResponse> getRouteList(@Path("city") String city);
 }

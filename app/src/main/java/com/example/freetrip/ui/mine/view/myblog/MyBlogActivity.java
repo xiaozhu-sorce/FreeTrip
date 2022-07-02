@@ -3,6 +3,7 @@ package com.example.freetrip.ui.mine.view.myblog;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -21,6 +22,7 @@ public class MyBlogActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerViewAdapter recyclerViewAdapter;
     private TextView name;
+    private ImageButton back;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,6 +34,8 @@ public class MyBlogActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
+        back = binding.mineBlogBack;
+        back.setOnClickListener(v -> finish());
         name = binding.textName;
         name.setText(UserWrapper.getInstance().getUser().getName());
 

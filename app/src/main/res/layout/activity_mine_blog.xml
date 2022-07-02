@@ -9,7 +9,7 @@
     android:paddingTop="?actionBarSize">
 
     <ImageButton
-        android:id="@+id/setting_back"
+        android:id="@+id/mine_blog_back"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="15dp"

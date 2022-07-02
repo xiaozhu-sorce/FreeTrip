@@ -16,7 +16,8 @@
         <entry key="app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/recentangle.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/textview_border.xml" value="0.152" />
-        <entry key="app/src/main/res/layout/activity_addblog.xml" value="0.30353088378906257" />
+        <entry key="app/src/main/res/layout/activity_addblog.xml" value="0.24794006347656253" />
+        <entry key="app/src/main/res/layout/activity_book_flight" value="0.19293478260869565" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.1956521739130435" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_mine_blog.xml" value="0.1956521739130435" />
@@ -38,8 +39,9 @@
         <entry key="app/src/main/res/layout/fragment_sign_out.xml" value="0.21875" />
         <entry key="app/src/main/res/layout/fragment_sign_up.xml" value="0.21875" />
         <entry key="app/src/main/res/layout/fragment_tour.xml" value="0.2937711381380802" />
-        <entry key="app/src/main/res/layout/item_blog.xml" value="0.531161362632027" />
+        <entry key="app/src/main/res/layout/item_blog.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_mine_blog.xml" value="0.45" />
+        <entry key="app/src/main/res/layout/item_route.xml" value="0.45" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.152" />
         <entry key="app/src/main/res/xml/network_security_config.xml" value="0.20104166666666667" />

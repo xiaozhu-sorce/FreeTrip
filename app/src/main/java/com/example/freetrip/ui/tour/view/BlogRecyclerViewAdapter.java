@@ -45,6 +45,7 @@ public class BlogRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
             int num = Integer.parseInt(blog.getPraise());
             adapterCallBack.dianzan(blog.getId());
             viewHolder.thumb.setBackgroundResource(R.drawable.ic_baseline_star_24);
+            viewHolder.thumb.setEnabled(false);
             viewHolder.pra.setText(String.valueOf(num+1));
         });
     }
