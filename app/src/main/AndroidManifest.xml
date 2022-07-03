@@ -36,6 +36,7 @@
         <activity android:name=".ui.mine.view.travel.MyTravelActivity" />
         <activity android:name=".ui.home.view.TravelActivity" />
         <activity android:name=".ui.home.view.route.RouteActivity" />
+        <activity android:name=".ui.home.view.WebActivity"/>
     </application>
 
 </manifest>

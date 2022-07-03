@@ -46,9 +46,12 @@ public class BannerBean {
         banner2.setImageRes(R.drawable.banner2);
         BannerBean banner3 = new BannerBean();
         banner3.setImageRes(R.drawable.banner3);
+        BannerBean banner4 = new BannerBean();
+        banner4.setImageRes(R.drawable.banner4);
         banners.add(banner1);
         banners.add(banner2);
         banners.add(banner3);
+        banners.add(banner4);
         return banners;
     }
 }

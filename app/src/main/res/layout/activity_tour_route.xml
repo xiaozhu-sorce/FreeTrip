@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/themeColor"
     android:paddingTop="?actionBarSize"
     tools:context=".ui.home.view.TravelActivity">
 
@@ -13,7 +13,6 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="15dp"
         android:background="@drawable/ic_baseline_arrow_back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -33,10 +32,10 @@
         android:id="@+id/beijing"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="140dp"
         android:backgroundTint="#D8D5D5"
         android:text="北京"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
@@ -45,89 +44,81 @@
         android:id="@+id/wuhan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="30dp"
         android:backgroundTint="#D8D5D5"
         android:text="武汉"
-        app:layout_constraintStart_toEndOf="@+id/beijing"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/beijing" />
 
 
     <Button
         android:id="@+id/chongqing"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="160dp"
-        android:layout_marginRight="30dp"
+        android:layout_marginTop="30dp"
         android:backgroundTint="#D8D5D5"
         android:text="重庆"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/wuhan"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/wuhan" />
 
     <Button
         android:id="@+id/shanghai"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
         android:backgroundTint="#D8D5D5"
         android:text="上海"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/beijing" />
+        app:layout_constraintStart_toEndOf="@+id/wuhan"
+        app:layout_constraintTop_toBottomOf="@+id/nanjing" />
 
 
     <Button
         android:id="@+id/chengdu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
         android:backgroundTint="#D8D5D5"
         android:text="成都"
-        app:layout_constraintStart_toEndOf="@+id/shanghai"
-        app:layout_constraintTop_toBottomOf="@+id/wuhan" />
-
+        app:layout_constraintEnd_toStartOf="@+id/wuhan"
+        app:layout_constraintTop_toBottomOf="@+id/dunhuang" />
 
     <Button
         android:id="@+id/nanjing"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginRight="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="160dp"
         android:backgroundTint="#D8D5D5"
         android:text="南京"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/chengdu"
-        app:layout_constraintTop_toBottomOf="@+id/chongqing" />
+        app:layout_constraintStart_toEndOf="@+id/beijing"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
 
     <Button
         android:id="@+id/xizang"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
         android:backgroundTint="#D8D5D5"
-        android:layout_marginTop="40dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:text="西藏"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/shanghai" />
-
+        app:layout_constraintEnd_toStartOf="@+id/chongqing"
+        app:layout_constraintTop_toBottomOf="@+id/chengdu" />
 
     <Button
         android:id="@+id/dunhuang"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="20dp"
         android:backgroundTint="#D8D5D5"
         android:text="敦煌"
-        app:layout_constraintStart_toEndOf="@+id/xizang"
-        app:layout_constraintTop_toBottomOf="@+id/chengdu" />
+        app:layout_constraintEnd_toStartOf="@+id/beijing"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <TextView
         android:id="@+id/ttt"
